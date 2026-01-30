@@ -11,7 +11,7 @@ models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # your Next app
+    allow_origins=["http://localhost:3000"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -22,7 +22,6 @@ app.add_middleware(
 def health():
     return {"status": "ok"}
 
-# Dependency (DB session per request)
 def get_db():
     db = SessionLocal()
     try:
